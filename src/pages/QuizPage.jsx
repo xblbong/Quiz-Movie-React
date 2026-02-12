@@ -99,13 +99,13 @@ const QuizPage = () => {
             <div className="flex items-start gap-3">
               <ShieldCheck size={18} className="text-green-600 mt-0.5 shrink-0" />
               <p className="text-sm text-text-muted font-medium leading-relaxed">
-                Jawaban yang sudah dipilih tidak bisa diubah.
+                Selected answers cannot be changed.
               </p>
             </div>
             <div className="flex items-start gap-3">
               <Clock size={18} className="text-primary mt-0.5 shrink-0" />
               <p className="text-sm text-text-muted font-medium leading-relaxed">
-                Kuis akan otomatis selesai jika waktu habis.
+                The quiz will automatically end when the time runs out.
               </p>
             </div>
           </div>
@@ -158,7 +158,7 @@ const QuizPage = () => {
             className={`flex-1 flex items-center justify-center gap-2 py-4 rounded-2xl font-bold transition-all
               ${quizState.currentIndex === 0 ? 'bg-slate-100 text-slate-400 cursor-not-allowed' : 'bg-white border-2 border-slate-200 text-text-main hover:bg-slate-50'}`}
           >
-            <ChevronLeft size={20} /> Kembali
+            <ChevronLeft size={20} /> Back
           </button>
 
           {hasAnsweredAll && isLastQuestion ? (
@@ -166,7 +166,7 @@ const QuizPage = () => {
               onClick={() => setShowConfirmModal(true)}
               className="flex-[1.5] py-4 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/30 hover:opacity-90 transition-all"
             >
-              Selesaikan Kuis
+              Complete the Quiz
             </button>
           ) : (
             <button
@@ -175,7 +175,7 @@ const QuizPage = () => {
               className={`flex-1 flex items-center justify-center gap-2 py-4 rounded-2xl font-bold transition-all
                 ${(!hasAnsweredCurrent || isLastQuestion) ? 'bg-slate-100 text-slate-400 cursor-not-allowed' : 'bg-primary text-white shadow-lg shadow-primary/20'}`}
             >
-              Selanjutnya <ChevronRight size={20} />
+              Next <ChevronRight size={20} />
             </button>
           )}
         </div>

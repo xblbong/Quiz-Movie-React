@@ -20,8 +20,8 @@ const ResultPage = () => {
   const getPerformanceData = () => {
     if (score === 100) {
       return { 
-        label: "WAWW! PERFECT!", 
-        sub: "Great! Kerja bagus! Kamu benar-benar Kritikus Film Sejati!", 
+        label: "WOW! Perfect!", 
+        sub: "Great! Good job! You are a true film critic!", 
         color: "bg-primary", // Warna Merah Utama
         lightColor: "bg-primary/10",
         textColor: "text-primary"
@@ -29,16 +29,16 @@ const ResultPage = () => {
     } 
     if (score >= 60) {
       return { 
-        label: "Cukup Baik!", 
-        sub: "Pengetahuan film kamu oke juga! Semangat tonton lebih banyak film lagi ya!", 
+        label: "Pretty good!", 
+        sub: "Your movie knowledge is pretty good! Keep up the spirit and watch more movies!", 
         color: "bg-orange-500", // Merah yang sedikit lebih muda
         lightColor: "bg-orange-50",
         textColor: "text-orange-500"
       };
     } 
     return { 
-      label: "Wah, sayang sekali :(", 
-      sub: "Kamu sudah berusaha hebat! Ayo tonton lebih banyak film lagi dan coba lagi nanti!", 
+      label: "Oh, no :(", 
+      sub: "You have done a great job! Watch more movies and try again later!", 
       color: "bg-slate-700", // Warna netral gelap agar tetap elegan
       lightColor: "bg-slate-100",
       textColor: "text-slate-600"

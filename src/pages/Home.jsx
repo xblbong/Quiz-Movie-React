@@ -91,7 +91,7 @@ const Home = () => {
             <h1 className="text-4xl font-extrabold text-text-main mb-2">
               <span className="text-primary">Cinema </span>Quiz
             </h1>
-            <p className="text-text-muted">Asah kemampuanmu seputar dunia perfilman internasional dan lokal.</p>
+            <p className="text-text-muted">Hone your skills in the world of international and local cinema.</p>
           </div>
 
           <div className="grid gap-4">
@@ -106,8 +106,8 @@ const Home = () => {
                     <History size={24} />
                   </div>
                   <div className="text-left">
-                    <p className="font-bold text-primary">Lanjutkan Quiz</p>
-                    <p className="text-xs text-text-muted">Terakhir dimainkan 2 menit lalu</p>
+                    <p className="font-bold text-primary">Continue Quiz</p>
+                    <p className="text-xs text-text-muted">Last played 2 minutes ago</p>
                   </div>
                 </div>
                 <ChevronRight className="text-primary opacity-40 group-hover:opacity-100" />
@@ -123,8 +123,8 @@ const Home = () => {
                     {isFetching ? <Loader2 className="animate-spin" /> : <Play size={24} fill="currentColor" />}
                   </div>
                   <div className="text-left">
-                    <p className="font-bold text-lg">Mulai Permainan Baru</p>
-                    <p className="text-xs text-white/60">Total 10 Pertanyaan Random</p>
+                    <p className="font-bold text-lg">Start a New Game</p>
+                    <p className="text-xs text-white/60">Total 10 Random Questions</p>
                   </div>
                 </div>
                 <ChevronRight className="text-white/40 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
