@@ -51,14 +51,14 @@ const LoginPage = () => {
               Cinema <span className="text-primary">Quiz</span>
             </h1>
             <p className="text-text-muted text-sm font-medium leading-relaxed px-4">
-              Masuk ke arena trivia dan buktikan kamu adalah pecinta film sejati.
+              Test your knowledge of international and local cinema.
             </p>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-6 relative z-10">
             <div className="space-y-3">
               <label className="text-sm font-bold capitalize text-text-muted ml-1 mb-1 block">
-                Nama Pemain
+                Player Name
               </label>
               <div className="relative group">
                 <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">
@@ -66,7 +66,7 @@ const LoginPage = () => {
                 </div>
                 <input 
                   type="text"
-                  placeholder="Contoh: Steven Spielberg"
+                  placeholder="Example: Steven Spielberg"
                   className="w-full pl-12 pr-4 py-4 rounded-2xl bg-slate-50 border-1 border-red-700 text-text-main font-semibold placeholder:text-slate-300 focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -81,7 +81,7 @@ const LoginPage = () => {
               type="submit"
               className="w-full  bg-primary text-white py-5 rounded-2xl font-bold flex items-center justify-center gap-3 shadow-xl shadow-primary/20 hover:bg-primary-light transition-all"
             >
-              <span className="tracking-wide text-lg">Gas, Mulai Kuis!</span>
+              <span className="tracking-wide text-lg">Lets, Start the Quiz!</span>
               <ArrowRight size={20} />
             </motion.button>
           </form>
