@@ -1,19 +1,22 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { QuizProvider, useQuiz } from './context/QuizContext';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import useQuizStore from './store/useQuizStore';
 import LoginPage from './pages/LoginPage';
 import Home from './pages/Home';
-import QuizPage from './pages/QuizPage'; // Import dari jawaban saya sebelumnya
-import ResultPage from './pages/ResultPage'; // Import dari jawaban saya sebelumnya
+import QuizPage from './pages/QuizPage';
+import ResultPage from './pages/ResultPage';
+
+const queryClient = new QueryClient();
 
 const PrivateRoute = ({ children }) => {
-  const { user } = useQuiz();
+  const user = useQuizStore((state) => state.user);
   return user ? children : <Navigate to="/login" />;
 };
 
 function App() {
   return (
-    <QuizProvider>
+    <QueryClientProvider client={queryClient}>
       <Router>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
@@ -22,7 +25,7 @@ function App() {
           <Route path="/result" element={<PrivateRoute><ResultPage /></PrivateRoute>} />
         </Routes>
       </Router>
-    </QuizProvider>
+    </QueryClientProvider>
   );
 }
 

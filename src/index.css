@@ -1,19 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+@import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap');
+@theme {
+  --color-primary: #800000; 
+  --color-primary-light: #A52A2A;
+  --color-background: #F4F4F4; 
+  --color-surface: #FFFFFF;
+  --color-text-main: #1A1A1A;
+  --color-text-muted: #666666;
+  --color-accent: #B8860B; 
+}
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
-  @apply bg-secondary text-ternary font-sans antialiased;
+  @apply bg-background text-text-main antialiased;
   margin: 0;
+  font-family: "Google Sans", sans-serif;
 }
-
-/* Custom Scrollbar untuk tema merah */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { @apply bg-secondary; }
-::-webkit-scrollbar-thumb { @apply bg-primary rounded-full; }
