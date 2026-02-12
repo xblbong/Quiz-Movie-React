@@ -1,52 +1,51 @@
 import React, { useState } from 'react';
-import { useQuiz } from '../context/QuizContext';
 import { useNavigate } from 'react-router-dom';
+import { useQuiz } from '../context/QuizContext';
+import { Film, PlayCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Film } from 'lucide-react';
 
 const LoginPage = () => {
   const [name, setName] = useState('');
-  const { login } = useQuiz();
+  const { setUser } = useQuiz();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    if (name.trim()) {
-      login(name);
+    if (name) {
+      setUser({ name });
       navigate('/');
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-secondary p-4">
-      {/* Grid 4 kolom untuk mobile */}
+    <div className="min-h-screen flex items-center justify-center bg-secondary p-6">
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-md bg-thirty p-8 rounded-3xl shadow-2xl border border-primary"
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        className="w-full max-w-md bg-thirty p-8 rounded-[2rem] border-2 border-primary shadow-[0_20px_50px_rgba(140,16,7,0.3)]"
       >
-        <div className="flex flex-col items-center mb-8">
-          <div className="p-4 bg-primary rounded-2xl mb-4">
-            <Film size={40} className="text-ternary" />
+        <div className="text-center mb-10">
+          <div className="inline-block p-4 bg-primary rounded-2xl mb-4 shadow-lg">
+            <Film size={48} className="text-ternary" />
           </div>
-          <h1 className="text-3xl font-bold text-ternary tracking-tight">CineQuiz</h1>
-          <p className="text-ternary/60 text-sm">Masukan nama untuk mulai kuis</p>
+          <h1 className="text-4xl font-lexend font-bold text-ternary mb-2">CineQuiz</h1>
+          <p className="text-ternary/60">Uji pengetahuan filmmu sekarang!</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <input
+        <form onSubmit={handleLogin} className="space-y-6">
+          <input 
             type="text"
-            placeholder="Nama Lengkap"
-            className="w-full bg-secondary border border-primary/30 p-4 rounded-xl text-ternary focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+            placeholder="Masukkan nama kamu..."
+            className="w-full p-4 rounded-xl bg-secondary border border-primary/40 text-ternary focus:ring-2 focus:ring-primary outline-none transition-all"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
           />
-          <button
+          <button 
             type="submit"
-            className="w-full bg-primary hover:bg-red-700 text-ternary font-bold py-4 rounded-xl shadow-lg transition-transform active:scale-95"
+            className="w-full bg-primary py-4 rounded-xl font-lexend font-bold text-ternary flex items-center justify-center gap-2 hover:bg-red-700 transition-colors shadow-lg"
           >
-            MULAI SEKARANG
+            <PlayCircle size={20} /> MASUK KE KUIS
           </button>
         </form>
       </motion.div>
