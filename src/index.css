@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap');
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-secondary text-ternary font-sans antialiased;
+  margin: 0;
+}
+
+/* Custom Scrollbar untuk tema merah */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { @apply bg-secondary; }
+::-webkit-scrollbar-thumb { @apply bg-primary rounded-full; }
