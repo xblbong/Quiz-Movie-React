@@ -48,7 +48,7 @@ const LoginPage = () => {
             </motion.div>
             
             <h1 className="text-3xl font-black text-text-main tracking-tight mb-3 capitalize">
-              Cinema <span className="text-primary">Quiz</span>
+              Cinema<span className="text-primary">Quiz</span>
             </h1>
             <p className="text-text-muted text-sm font-medium leading-relaxed px-4">
               Test your knowledge of international and local cinema.

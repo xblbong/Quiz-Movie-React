@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, Navigate } from 'react-router-dom';
 import useQuizStore from '../store/useQuizStore';
-import { CheckCircle2, Clock, Timer, Award, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
+import { CheckCircle2, Clock, Timer, Award, ShieldCheck, ChevronLeft, ChevronRight, Home } from 'lucide-react';
 
 const QuizPage = () => {
   const { quizState, setAnswer, tick, finishQuiz, goToQuestion } = useQuizStore();
@@ -92,6 +92,14 @@ const QuizPage = () => {
           {/* Progress Bar */}
           <div className="w-full h-2 bg-slate-200 rounded-full mb-6 overflow-hidden">
             <motion.div animate={{ width: `${progress}%` }} className="h-full bg-primary" />
+          </div>
+
+          {/* icon and button kembali ke home */}
+          <div className="flex justify-end mb-4">
+            <button onClick={() => navigate('/')} className="flex items-center gap-2 text-sm text-slate-600 border border-slate-300 hover:text-primary transition-colors rounded-lg px-4 py-2">
+              <Home size={16} />
+              Kembali ke Home
+            </button>
           </div>
 
           {/* Instructions */}

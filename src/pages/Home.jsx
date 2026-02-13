@@ -119,7 +119,7 @@ const Home = () => {
         <div className="flex-1 p-8 md:p-12 bg-white">
           <div className="mb-10">
             <h1 className="text-4xl font-extrabold text-text-main mb-2">
-              <span className="text-primary">Cinema </span>Quiz
+              <span className="text-primary">Cinema</span>Quiz
             </h1>
             <p className="text-text-muted">Hone your skills in the world of international and local cinema.</p>
           </div>

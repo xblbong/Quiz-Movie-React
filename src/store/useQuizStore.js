@@ -29,10 +29,6 @@ const useQuizStore = create(
         const state = get().quizState;
         if (!state || state.isFinished || state.isTimeUp) return;
 
-        //Cek apakah soal ini sudah dijawab sebelumnya
-        // const alreadyAnswered = state.answers[state.currentIndex] !== undefined;
-        // if (alreadyAnswered) return;
-
         const currentQ = state.questions[state.currentIndex];
         const isCorrect = selectedOption === currentQ.correctAnswer;
 
