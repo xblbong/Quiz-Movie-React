@@ -99,7 +99,7 @@ const QuizPage = () => {
             <div className="flex items-start gap-3">
               <ShieldCheck size={18} className="text-green-600 mt-0.5 shrink-0" />
               <p className="text-sm text-text-muted font-medium leading-relaxed">
-                Selected answers cannot be changed.
+                Select the correct answer.
               </p>
             </div>
             <div className="flex items-start gap-3">

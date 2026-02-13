@@ -21,6 +21,7 @@ const useQuizStore = create(
           timeLeft: 180,
           isFinished: false,
           isTimeUp: false, 
+          lastActive: Date.now(),
         }
       }),
 
@@ -28,7 +29,7 @@ const useQuizStore = create(
         const state = get().quizState;
         if (!state || state.isFinished || state.isTimeUp) return;
 
-        // PROTEKSI: Cek apakah soal ini sudah dijawab sebelumnya
+        //Cek apakah soal ini sudah dijawab sebelumnya
         // const alreadyAnswered = state.answers[state.currentIndex] !== undefined;
         // if (alreadyAnswered) return;
 
@@ -52,7 +53,8 @@ const useQuizStore = create(
             quizState: {
               ...state,
               answers: newAnswers,
-              currentIndex: state.currentIndex + 1
+              currentIndex: state.currentIndex + 1,
+              lastActive: Date.now(),
             }
           });
         }
