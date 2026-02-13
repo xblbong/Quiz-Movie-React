@@ -142,7 +142,7 @@ const Home = () => {
                       <p className="text-xs text-text-main font-bold">
                         Progress: {quizState.answers.length} / {quizState.questions.length} Questions
                       </p>
-                      <p className="text-[10px] text-text-muted uppercase tracking-wider font-medium">
+                      <p className="text-[10px] text-text-muted capitalize tracking-wider font-medium">
                         Last played: {formatLastPlayed(quizState.lastActive)}
                       </p>
                     </div>
