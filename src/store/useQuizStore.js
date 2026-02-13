@@ -13,6 +13,7 @@ const useQuizStore = create(
 
       quizState: null,
 
+      // fungsi untuk memulai kuis baru
       startQuiz: (questions) => set({
         quizState: {
           questions,
@@ -24,7 +25,8 @@ const useQuizStore = create(
           lastActive: Date.now(),
         }
       }),
-
+      
+      // fungsi untuk menyimpan jawaban user
       setAnswer: (selectedOption) => {
         const state = get().quizState;
         if (!state || state.isFinished || state.isTimeUp) return;
@@ -56,6 +58,7 @@ const useQuizStore = create(
         }
       },
 
+      // fungsi untuk mengurangi waktu setiap detik
       tick: () => {
         const state = get().quizState;
         if (!state || state.isFinished || state.isTimeUp) return;
@@ -67,6 +70,7 @@ const useQuizStore = create(
         set({ quizState: { ...state, timeLeft: state.timeLeft - 1 } });
       },
 
+      // fungsi untuk menandai kuis selesai
       finishQuiz: () => {
         const state = get().quizState;
         if (state) {
@@ -74,7 +78,7 @@ const useQuizStore = create(
         }
       },
 
-      resetQuiz: () => set({ quizState: null }),
+      resetQuiz: () => set({ quizState: null }), // reset quizState ke null dan 
 
       goToQuestion: (index) => {
         const state = get().quizState;
