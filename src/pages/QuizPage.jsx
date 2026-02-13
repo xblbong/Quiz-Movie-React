@@ -23,7 +23,7 @@ const QuizPage = () => {
 
   const currentQuestion = quizState.questions[quizState.currentIndex];
   const isLastQuestion = quizState.currentIndex === quizState.questions.length - 1;
-  
+
   // Cek apakah soal sudah dijawab
   const hasAnsweredCurrent = quizState.answers[quizState.currentIndex] !== undefined;
   // Cek apakah semua soal sudah dijawab
@@ -34,7 +34,7 @@ const QuizPage = () => {
   const handleAnswer = (option) => {
     // if (hasAnsweredCurrent) return; // Aturan: Tidak bisa ubah jawaban
     setAnswer(option);
-    
+
     // Jika soal terakhir baru dijawab, munculkan modal
     if (isLastQuestion) {
       setShowConfirmModal(true);
@@ -43,7 +43,7 @@ const QuizPage = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col items-center p-4 md:p-8 font-lexend relative">
-      
+
       {/* Modal Waktu Habis */}
       <AnimatePresence>
         {quizState.isTimeUp && !quizState.isFinished && (
@@ -95,17 +95,31 @@ const QuizPage = () => {
           </div>
 
           {/* Instructions */}
-          <div className="space-y-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
-            <div className="flex items-start gap-3">
-              <ShieldCheck size={18} className="text-green-600 mt-0.5 shrink-0" />
-              <p className="text-sm text-text-muted font-medium leading-relaxed">
-                Select the correct answer.
+          <div className="space-y-4 bg-slate-50 p-4 rounded-2xl border border-slate-100 shadow-xl">
+            <div className="flex items-start gap-4">
+              <div className="p-2 bg-white/10 rounded-lg">
+                <ShieldCheck size={18} className="text-primary" />
+              </div>
+              <p className="text-xs text-black/80 leading-relaxed font-medium">
+                Select the correct answer for each movie trivia question.
               </p>
             </div>
-            <div className="flex items-start gap-3">
-              <Clock size={18} className="text-primary mt-0.5 shrink-0" />
-              <p className="text-sm text-text-muted font-medium leading-relaxed">
+
+            <div className="flex items-start gap-4">
+              <div className="p-2 bg-white/10 rounded-lg">
+                <Clock size={18} className="text-yellow-600" />
+              </div>
+              <p className="text-xs text-black/80 leading-relaxed font-medium">
                 The quiz will automatically end when the time runs out.
+              </p>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="p-2 bg-white/10 rounded-lg">
+                <Award size={18} className="text-green-700" />
+              </div>
+              <p className="text-xs text-black/80 leading-relaxed font-medium">
+                Review your score and movie knowledge at the end.
               </p>
             </div>
           </div>
@@ -121,7 +135,7 @@ const QuizPage = () => {
             className="bg-white rounded-3xl shadow-xl border border-slate-100 p-6 md:p-10 mb-6"
           >
             <h2 className="text-2xl md:text-3xl font-extrabold text-text-main mb-10 leading-snug"
-                dangerouslySetInnerHTML={{ __html: currentQuestion?.question }} />
+              dangerouslySetInnerHTML={{ __html: currentQuestion?.question }} />
 
             <div className="grid gap-4">
               {currentQuestion?.options.map((option, index) => {
@@ -140,7 +154,7 @@ const QuizPage = () => {
                         {String.fromCharCode(65 + index)}
                       </span>
                       <span className={`font-semibold text-base md:text-lg ${isSelected ? 'text-primary' : 'text-slate-700'}`}
-                            dangerouslySetInnerHTML={{ __html: option }} />
+                        dangerouslySetInnerHTML={{ __html: option }} />
                     </div>
                     {isSelected && <CheckCircle2 size={20} className="text-primary" />}
                   </button>
@@ -152,14 +166,15 @@ const QuizPage = () => {
 
         {/* Navigation Buttons */}
         <div className="flex justify-between items-center w-full gap-4">
-          <button
-            onClick={() => goToQuestion(quizState.currentIndex - 1)}
-            disabled={quizState.currentIndex === 0}
-            className={`flex-1 flex items-center justify-center gap-2 py-4 rounded-2xl font-bold transition-all
-              ${quizState.currentIndex === 0 ? 'bg-slate-100 text-slate-400 cursor-not-allowed' : 'bg-white border-2 border-slate-200 text-text-main hover:bg-slate-50'}`}
-          >
-            <ChevronLeft size={20} /> Back
-          </button>
+          {/* Tombol Back hanya dirender jika bukan soal pertama */}
+          {quizState.currentIndex !== 0 && (
+            <button
+              onClick={() => goToQuestion(quizState.currentIndex - 1)}
+              className="flex-1 flex items-center justify-center gap-2 py-4 rounded-2xl font-bold transition-all bg-white border-2 border-slate-200 text-text-main hover:bg-slate-50"
+            >
+              <ChevronLeft size={20} /> Back
+            </button>
+          )}
 
           {hasAnsweredAll && isLastQuestion ? (
             <button
@@ -173,7 +188,7 @@ const QuizPage = () => {
               onClick={() => goToQuestion(quizState.currentIndex + 1)}
               disabled={!hasAnsweredCurrent || isLastQuestion}
               className={`flex-1 flex items-center justify-center gap-2 py-4 rounded-2xl font-bold transition-all
-                ${(!hasAnsweredCurrent || isLastQuestion) ? 'bg-slate-100 text-slate-400 cursor-not-allowed' : 'bg-primary text-white shadow-lg shadow-primary/20'}`}
+        ${(!hasAnsweredCurrent || isLastQuestion) ? 'bg-slate-100 text-slate-400 cursor-not-allowed' : 'bg-primary text-white shadow-lg shadow-primary/20'}`}
             >
               Next <ChevronRight size={20} />
             </button>
