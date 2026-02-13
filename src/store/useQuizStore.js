@@ -18,7 +18,7 @@ const useQuizStore = create(
           questions,
           currentIndex: 0,
           answers: [],
-          timeLeft: 180,
+          timeLeft: 180, // waktu 3menit total dalam detik
           isFinished: false,
           isTimeUp: false, 
           lastActive: Date.now(),
@@ -85,8 +85,8 @@ const useQuizStore = create(
       },
     }),
     {
-      name: 'quiz-storage',
-      storage: createJSONStorage(() => localStorage),
+      name: 'quiz-storage', //nama key di localStorage
+      storage: createJSONStorage(() => localStorage), //simpan ke localStorage
     }
   )
 );
