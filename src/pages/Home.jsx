@@ -173,7 +173,7 @@ const Home = () => {
             <div className="grid grid-cols-2 gap-4 mt-4">
               <div className="p-4 bg-gray-50 rounded-2xl border border-gray-100 flex flex-col items-center justify-center text-center opacity-60">
                 <Trophy size={20} className="mb-2 text-text-muted" />
-                <p className="text-xs font-bold uppercase">Leaderboard</p>
+                <p className="text-xs font-bold uppercase">Test your knowledge</p>
               </div>
               <div className="p-4 bg-gray-50 rounded-2xl border border-gray-100 flex flex-col items-center justify-center text-center opacity-60">
                 <Clapperboard size={20} className="mb-2 text-text-muted" />
