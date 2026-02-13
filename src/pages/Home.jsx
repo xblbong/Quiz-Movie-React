@@ -77,10 +77,10 @@ const Home = () => {
 
             <div className="space-y-6">
               <p className="text-white/40 text-[10px] font-bold uppercase tracking-[0.3em]">Quiz Rules</p>
-              
+
               <div className="flex items-start gap-4">
                 <div className="p-2 bg-white/10 rounded-lg">
-                   <ShieldCheck size={18} className="text-white" />
+                  <ShieldCheck size={18} className="text-white" />
                 </div>
                 <p className="text-xs text-white/80 leading-relaxed font-medium">
                   Select the correct answer for each movie trivia question.
@@ -89,7 +89,7 @@ const Home = () => {
 
               <div className="flex items-start gap-4">
                 <div className="p-2 bg-white/10 rounded-lg">
-                   <Clock size={18} className="text-white" />
+                  <Clock size={18} className="text-white" />
                 </div>
                 <p className="text-xs text-white/80 leading-relaxed font-medium">
                   The quiz will automatically end when the time runs out.
@@ -98,7 +98,7 @@ const Home = () => {
 
               <div className="flex items-start gap-4">
                 <div className="p-2 bg-white/10 rounded-lg">
-                   <Award size={18} className="text-white" />
+                  <Award size={18} className="text-white" />
                 </div>
                 <p className="text-xs text-white/80 leading-relaxed font-medium">
                   Review your score and movie knowledge at the end.
@@ -129,15 +129,23 @@ const Home = () => {
             {quizState && !quizState.isFinished ? (
               <button
                 onClick={() => navigate('/quiz')}
-                className="group flex items-center justify-between p-6 bg-white border-2 border-primary rounded-2xl transition-all hover:bg-primary/5"
+                className="group flex items-center justify-between p-6 bg-white border-2 border-primary rounded-[2rem] transition-all hover:bg-primary/5 shadow-lg shadow-primary/5"
               >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                    <History size={24} />
+                <div className="flex items-center gap-5">
+                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:rotate-12 transition-transform">
+                    <History size={28} />
                   </div>
                   <div className="text-left">
-                    <p className="font-bold text-primary">Continue Quiz</p>
-                    <p className="text-xs text-text-muted">Last played {formatLastPlayed(quizState.lastActive)}</p>
+                    <p className="font-black text-xl text-primary">Continue Quiz</p>
+                    <div className="space-y-0.5">
+                      {/*Menampilkan jumlah soal yang dikerjakan (Poin D) */}
+                      <p className="text-xs text-text-main font-bold">
+                        Progress: {quizState.answers.length} / {quizState.questions.length} Questions
+                      </p>
+                      <p className="text-[10px] text-text-muted uppercase tracking-wider font-medium">
+                        Last played: {formatLastPlayed(quizState.lastActive)}
+                      </p>
+                    </div>
                   </div>
                 </div>
                 <ChevronRight className="text-primary opacity-40 group-hover:opacity-100" />
